@@ -25,40 +25,39 @@ class RiskScorer:
         risk_score = 0
         signals = {}
         flags = []
-
-        # Use the configured official display name if available
-        official_name = official_app.get("official_name", brand_key.title())
-
-        # Signal 1: Name similarity (0-1)
-        name_sim = self.signal_extractor.name_similarity(app["name"], official_name)
+        
+        # Signal 1: Name similarity
+        name_sim = self.signal_extractor.name_similarity(
+            app["name"], 
+            brand_key.title()
+        )
         signals["name_similarity"] = name_sim
-
-        # Weight name similarity more clearly: higher similarity with mismatched package -> stronger signal
-        if name_sim >= THRESHOLDS["name_similarity_high"] and app["package_id"] != official_app["package_id"]:
-            risk_score += 40
+        
+        if name_sim > THRESHOLDS["name_similarity_high"] and \
+           app["package_id"] != official_app["package_id"]:
+            risk_score += 35
             flags.append("High name similarity but different package")
-        elif name_sim >= THRESHOLDS["name_similarity_medium"] and app["package_id"] != official_app["package_id"]:
-            risk_score += 20
-            flags.append("Moderate name similarity but different package")
-
+        
         # Signal 2: Package name check
-        package_check = self.signal_extractor.package_name_check(app["package_id"], official_app["package_id"])
+        package_check = self.signal_extractor.package_name_check(
+            app["package_id"],
+            official_app["package_id"]
+        )
         signals["package_check"] = package_check
-
+        
         if package_check["is_suspicious"]:
             risk_score += THRESHOLDS["package_mismatch_penalty"]
             flags.append(package_check["reason"])
-
+        
         # Signal 3: Publisher check
-        publisher_check = self.signal_extractor.publisher_check(app["publisher"], official_app["publisher"])
+        publisher_check = self.signal_extractor.publisher_check(
+            app["publisher"],
+            official_app["publisher"]
+        )
         signals["publisher_check"] = publisher_check
-
+        
         if not publisher_check["matches"]:
-            # If publisher totally differs it's a strong signal; if it's somewhat similar, penalize less
-            if publisher_check["similarity"] < 0.7:
-                risk_score += THRESHOLDS["publisher_mismatch_penalty"]
-            else:
-                risk_score += int(THRESHOLDS["publisher_mismatch_penalty"] * 0.6)
+            risk_score += THRESHOLDS["publisher_mismatch_penalty"]
             flags.append(f"Publisher mismatch: '{app['publisher']}'")
         
         # Determine verdict

@@ -1,0 +1,104 @@
+{
+  "scan_metadata": {
+    "brand_searched": "phonepe",
+    "timestamp": "2024-11-21T10:30:00Z",
+    "total_apps_scanned": 3,
+    "high_risk_apps": 2,
+    "medium_risk_apps": 0,
+    "low_risk_apps": 1
+  },
+  "results": [
+    {
+      "app_name": "PhonPe - UPI Payments",
+      "package_id": "com.phonepe.app.update",
+      "publisher": "PhonePe Services",
+      "risk_score": 95,
+      "verdict": "HIGH RISK - Likely fake",
+      "signals": {
+        "name_similarity": 0.94,
+        "package_check": {
+          "is_suspicious": true,
+          "reason": "Contains official package but has extra parts: com.phonepe.app.update"
+        },
+        "publisher_check": {
+          "matches": false,
+          "similarity": 0.65,
+          "reason": "Publisher mismatch"
+        }
+      },
+      "flags": [
+        "High name similarity but different package",
+        "Contains official package but has extra parts: com.phonepe.app.update",
+        "Publisher mismatch: 'PhonePe Services'"
+      ],
+      "recommendation": "BLOCK - High confidence fake app",
+      "evidence_for_takedown": {
+        "impersonated_brand": "PhonePe",
+        "impersonated_package": "com.phonepe.app",
+        "suspicious_indicators": [
+          "Package name mimics official app with '.update' suffix",
+          "Publisher differs from official 'PhonePe Private Limited'",
+          "Likely phishing/credential theft attempt"
+        ]
+      }
+    },
+    {
+      "app_name": "PhonePe Secure",
+      "package_id": "com.phonepe.secure.app",
+      "publisher": "Mobile Payment Solutions",
+      "risk_score": 85,
+      "verdict": "HIGH RISK - Likely fake",
+      "signals": {
+        "name_similarity": 0.76,
+        "package_check": {
+          "is_suspicious": true,
+          "reason": "Very similar package name (similarity: 0.73)"
+        },
+        "publisher_check": {
+          "matches": false,
+          "similarity": 0.15,
+          "reason": "Publisher mismatch"
+        }
+      },
+      "flags": [
+        "Moderate name similarity but different package",
+        "Very similar package name (similarity: 0.73)",
+        "Publisher mismatch: 'Mobile Payment Solutions'"
+      ],
+      "recommendation": "BLOCK - High confidence fake app",
+      "evidence_for_takedown": {
+        "impersonated_brand": "PhonePe",
+        "impersonated_package": "com.phonepe.app",
+        "suspicious_indicators": [
+          "Uses 'PhonePe' brand name without authorization",
+          "Publisher is unrelated third party",
+          "Package name designed to appear official"
+        ]
+      }
+    },
+    {
+      "app_name": "PhonePe",
+      "package_id": "com.phonepe.app",
+      "publisher": "PhonePe Private Limited",
+      "risk_score": 0,
+      "verdict": "LOW RISK - Appears legitimate",
+      "signals": {
+        "name_similarity": 1.0,
+        "package_check": {
+          "is_suspicious": false,
+          "reason": "Exact match"
+        },
+        "publisher_check": {
+          "matches": true,
+          "similarity": 1.0,
+          "reason": "Exact match"
+        }
+      },
+      "flags": [],
+      "recommendation": "SAFE - Official app"
+    }
+  ],
+  "takedown_report_generated": true,
+  "takedown_report_path": "reports/phonepe_takedown_2024-11-21.txt"
+}
+

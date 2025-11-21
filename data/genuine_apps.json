@@ -1,0 +1,83 @@
+{
+  "phonepe": {
+    "package_id": "com.phonepe.app",
+    "publisher": "PhonePe Private Limited",
+    "official_name": "PhonePe",
+    "category": "major_upi",
+    "min_downloads": "500M+",
+    "official_urls": [
+      "https://play.google.com/store/apps/details?id=com.phonepe.app"
+    ]
+  },
+  "googlepay": {
+    "package_id": "com.google.android.apps.nbu.paisa.user",
+    "publisher": "Google LLC",
+    "official_name": "Google Pay",
+    "category": "major_upi",
+    "min_downloads": "1B+",
+    "official_urls": [
+      "https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user"
+    ]
+  },
+  "paytm": {
+    "package_id": "net.one97.paytm",
+    "publisher": "Paytm Mobile Solutions Pvt. Ltd.",
+    "official_name": "Paytm",
+    "category": "major_upi",
+    "min_downloads": "500M+",
+    "official_urls": [
+      "https://play.google.com/store/apps/details?id=net.one97.paytm"
+    ]
+  },
+  "bhim": {
+    "package_id": "in.org.npci.upiapp",
+    "publisher": "National Payments Corporation of India",
+    "official_name": "BHIM",
+    "category": "government",
+    "min_downloads": "100M+",
+    "official_urls": [
+      "https://play.google.com/store/apps/details?id=in.org.npci.upiapp"
+    ]
+  },
+  "sbi": {
+    "package_id": "com.sbi.lotusintouch",
+    "publisher": "State Bank of India",
+    "official_name": "YONO SBI",
+    "category": "banking",
+    "min_downloads": "100M+",
+    "official_urls": [
+      "https://play.google.com/store/apps/details?id=com.sbi.lotusintouch"
+    ]
+  },
+  "icici": {
+    "package_id": "com.csam.icici.bank.imobile",
+    "publisher": "ICICI Bank Ltd.",
+    "official_name": "iMobile Pay",
+    "category": "banking",
+    "min_downloads": "50M+",
+    "official_urls": [
+      "https://play.google.com/store/apps/details?id=com.csam.icici.bank.imobile"
+    ]
+  },
+  "hdfc": {
+    "package_id": "com.snapwork.hdfc",
+    "publisher": "HDFC Bank Ltd",
+    "official_name": "HDFC Bank MobileBanking",
+    "category": "banking",
+    "min_downloads": "50M+",
+    "official_urls": [
+      "https://play.google.com/store/apps/details?id=com.snapwork.hdfc"
+    ]
+  },
+  "cred": {
+    "package_id": "com.dreamplug.androidapp",
+    "publisher": "Dreamplug Technologies",
+    "official_name": "CRED",
+    "category": "fintech",
+    "min_downloads": "10M+",
+    "official_urls": [
+      "https://play.google.com/store/apps/details?id=com.dreamplug.androidapp"
+    ]
+  }
+}
+
