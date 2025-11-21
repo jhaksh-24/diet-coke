@@ -1,23 +1,21 @@
-"""Configuration for the fake app detector."""
+"""Configuration for the fake app detector.
 
-# Known genuine apps database
-GENUINE_APPS = {
-    "phonepe": {
-        "package_id": "com.phonepe.app",
-        "publisher": "PhonePe Private Limited",
-        "official_icon_url": "https://...",
-    },
-    "paytm": {
-        "package_id": "net.one97.paytm",
-        "publisher": "Paytm Mobile Solutions",
-        "official_icon_url": "https://...",
-    },
-    "googlepay": {
-        "package_id": "com.google.android.apps.nbu.paisa.user",
-        "publisher": "Google LLC",
-        "official_icon_url": "https://...",
+This module builds a compact `GENUINE_APPS` mapping used by the scorer
+from the more comprehensive `src.upi_db.COMPLETE_UPI_APPS_DATABASE`.
+"""
+
+from src.upi_db import COMPLETE_UPI_APPS_DATABASE
+
+# Build a minimal GENUINE_APPS mapping expected by scorer and other components.
+# Each entry includes: package_id, publisher, official_name, and optional icon URL.
+GENUINE_APPS = {}
+for key, data in COMPLETE_UPI_APPS_DATABASE.items():
+    GENUINE_APPS[key] = {
+        "package_id": data.get("package"),
+        "publisher": data.get("publisher"),
+        "official_name": data.get("name"),
+        "official_icon_url": data.get("official_icon_url", "")
     }
-}
 
 # Risk scoring thresholds
 THRESHOLDS = {
